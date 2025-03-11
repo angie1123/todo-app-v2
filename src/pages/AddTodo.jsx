@@ -53,8 +53,11 @@ export default function AddTodo() {
           type="checkbox"
           id="completed"
           label="Mark as completed"
-          checked={completed}
+          /*when the chekbox is checked,set the checked value to completed */
+          /*if checkbox is checked, checked value is true otherwise is false */
           onChange={(e) => setCompleted(e.target.checked)}
+          /*checked atrribute is to control the checked state of a checkedbox element based on the value of completed */
+          checked={completed}
           className="mb-3"
         />
 

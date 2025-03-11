@@ -15,6 +15,10 @@ export default function TodoCard({ todo }) {
   const startTimer = () => {
     if (timerInterval === null) {
 
+      /*
+      The returned intervalID is a numeric, non-zero value which identifies the timer 
+      created by the call to setInterval(); 
+      this value can be passed to clearInterval() to cancel the interval. */
       const intervalID = setInterval(() => {
         setTimer((prevTimer) => prevTimer + 1)
       }, 1000)
@@ -90,6 +94,7 @@ export default function TodoCard({ todo }) {
           <Button variant="secondary" href={`todo/${todo.id}`} className="ms-2">
           <i className="bi bi-pencil"></i>
           </Button>
+          
           <Button  variant="danger" onClick={()=>setShowModal(true)} className="mx-2">
           <i className="bi bi-trash"></i>
           </Button>

@@ -9,6 +9,7 @@ export default function EditTodo() {
   const navigate = useNavigate()
   /*useParams allow to have access to dynamic parameter in the URL */
   /*useParams().id  accessed the id property inside useParams()*/
+  
   const id = parseInt(useParams().id)
   //filter out the current updating todo
   /*filter returns an array,
@@ -22,17 +23,19 @@ export default function EditTodo() {
   function updateTodo(event) {
     event.preventDefault()
   
+    //will return todos array with the specific one changes
     const updateTodos = todos.map((todo) => {
       if (todo.id === id) {
-        return {id,title,description,completed}
+        return { id, title, description, completed }
       }
-      return todo;
-
+     /*if condition not meet,return original todo as it is,
+     so only the condition meet todos will be updated to different todo    
+     */ 
+     return todo;
     })
+    //the todos will be set to updatedTodos with original arrangement
     setTodos(updateTodos)
     navigate("/")
-
-   
   }
 
   return (
@@ -70,7 +73,7 @@ export default function EditTodo() {
           className="mb-3"
         />
 
-        <Button vaiant="primary" type="submit">
+        <Button variant="primary" type="submit">
           Submit
         </Button>
 
